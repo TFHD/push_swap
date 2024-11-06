@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strncmp.c                                          :+:      :+:    :+:   */
+/*   do_stack_function_2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabartho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 11:25:44 by sabartho          #+#    #+#             */
-/*   Updated: 2024/07/15 11:25:53 by sabartho         ###   ########.fr       */
+/*   Created: 2024/10/28 15:51:18 by sabartho          #+#    #+#             */
+/*   Updated: 2024/10/28 15:51:22 by sabartho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	do_rr(t_stack *stack_a, t_stack *stack_b)
 {
-	unsigned int	i;
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_printf("rr\n");
+}
 
-	i = 0;
-	while ((unsigned char)s1[i] && (unsigned char)s2[i])
-	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i] && i < n)
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+void	do_rrr(t_stack *stack_a, t_stack *stack_b)
+{
+	rrotate(stack_a);
+	rrotate(stack_b);
+	ft_printf("rrr\n");
+}
+
+void	do_ss(t_stack *stack_a, t_stack *stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
+	ft_printf("ss\n");
 }

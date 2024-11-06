@@ -13,8 +13,12 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 # include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {
@@ -65,5 +69,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int		ft_count_words(const char *str, char charset);
+char	*get_next_line(int fd);
 
 #endif

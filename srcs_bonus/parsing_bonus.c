@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabartho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 21:28:40 by sabartho          #+#    #+#             */
-/*   Updated: 2024/10/30 11:20:01 by sabartho         ###   ########.fr       */
+/*   Created: 2024/10/30 18:01:01 by sabartho          #+#    #+#             */
+/*   Updated: 2024/10/30 18:01:04 by sabartho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/push_swap_bonus.h"
 
 int	count_real_word(char **av, int i, int j, int numbers)
 {
@@ -51,7 +51,7 @@ char	**parsing_split(char **av, int i, int j, int numbers)
 	{
 		j = 0;
 		split_args = ft_split(av[i++], ' ');
-		while (split_args && split_args[j])
+		while (split_args[j])
 		{
 			all_nums[numbers] = ft_strjoin(split_args[j], "");
 			free(split_args[j]);
@@ -75,18 +75,19 @@ int	parsing(char **av, int **tab)
 	*tab = 0;
 	while (av[i])
 		words += ft_count_words(av[i++], ' ');
+	if (!words)
+		return (0);
 	split_args = parsing_split(av, 0, 0, 0);
-	if (!words || !split_args || !ft_char_is_int(split_args))
+	if (!split_args)
+		return (0);
+	if (!ft_char_is_int(split_args))
 	{
 		free_args(split_args);
 		return (0);
 	}
 	*tab = put_in_tab(split_args, words);
 	if (!*tab)
-	{
-		free_args(split_args);
-		return (0);
-	}
+		return (free_args(split_args));
 	free_args(split_args);
 	return (words);
 }

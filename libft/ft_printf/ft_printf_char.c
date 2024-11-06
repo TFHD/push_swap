@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strncmp.c                                          :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabartho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 11:25:44 by sabartho          #+#    #+#             */
-/*   Updated: 2024/07/15 11:25:53 by sabartho         ###   ########.fr       */
+/*   Created: 2024/10/16 06:44:00 by sabartho          #+#    #+#             */
+/*   Updated: 2024/10/16 06:44:02 by sabartho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_putchar(char c)
 {
-	unsigned int	i;
+	write(1, &c, 1);
+	return (1);
+}
 
-	i = 0;
-	while ((unsigned char)s1[i] && (unsigned char)s2[i])
+int	ft_putstr(char *str)
+{
+	int	len_write;
+
+	len_write = 0;
+	if (str)
 	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i] && i < n)
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		while (*str)
+			len_write += ft_putchar(*(str++));
 	}
-	return (0);
+	else
+		len_write += ft_putstr(STRNULL);
+	return (len_write);
 }

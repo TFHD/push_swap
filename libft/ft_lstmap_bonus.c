@@ -18,7 +18,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new;
 	void	*new2;
 
-	if (!lst || !del || !f)
+	if (!f || !del || !f)
 		return (0);
 	new_list = 0;
 	while (lst)
@@ -38,28 +38,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_list);
 }
-
-int main(void)
-{
-	t_list *my_list;
-	t_list *total
-	int	i = 0;
-	total = 0;
-	while (i < 10)
-	{
-		my_list = ft_lstnew(i++);
-		ft_lstadd_front(&total, my_list)
-	}
-	ft_lstmap(total, f, del);
-	while (total)
-	{
-		printf("%d", int())
-	
-	}
-	return (0);
-}
-
-
-
-
-

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_function.c                                   :+:      :+:    :+:   */
+/*   stack_function_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabartho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 12:52:18 by sabartho          #+#    #+#             */
-/*   Updated: 2024/10/29 12:50:01 by sabartho         ###   ########.fr       */
+/*   Created: 2024/10/30 18:01:51 by sabartho          #+#    #+#             */
+/*   Updated: 2024/10/30 18:01:53 by sabartho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/push_swap_bonus.h"
 
 int	swap(t_stack *stack)
 {

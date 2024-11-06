@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabartho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 21:21:52 by sabartho          #+#    #+#             */
-/*   Updated: 2024/10/30 11:29:09 by sabartho         ###   ########.fr       */
+/*   Created: 2024/10/30 17:59:04 by sabartho          #+#    #+#             */
+/*   Updated: 2024/10/30 17:59:30 by sabartho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include "../libft/libft.h"
 # include "../libft/ft_printf/ft_printf.h"

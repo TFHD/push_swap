@@ -25,7 +25,7 @@ static int	ft_size_before_charset(char const *str, char charset, int i)
 	return (size);
 }
 
-static int	ft_count_words(const char *str, char charset)
+int	ft_count_words(const char *str, char charset)
 {
 	int	i;
 	int	word;

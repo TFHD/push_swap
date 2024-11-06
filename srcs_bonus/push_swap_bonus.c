@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabartho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 18:41:02 by sabartho          #+#    #+#             */
-/*   Updated: 2024/10/30 11:10:00 by sabartho         ###   ########.fr       */
+/*   Created: 2024/10/30 18:01:23 by sabartho          #+#    #+#             */
+/*   Updated: 2024/10/30 18:01:25 by sabartho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/push_swap_bonus.h"
 
 void	print_error(void)
 {
@@ -64,30 +64,4 @@ t_stack	*init_stack(char name, int size, char **av)
 		stack->size = 0;
 	stack->name = name;
 	return (stack);
-}
-
-int	main(int ac, char **av)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	if (ac - 1 == 0)
-		exit(EXIT_FAILURE);
-	stack_a = init_stack('a', ac, av + 1);
-	if (stack_a)
-		stack_b = init_stack('b', ac, av + 1);
-	if (!stack_a || !stack_b)
-	{
-		print_error();
-		return (0);
-	}
-	if (stack_a->size == 2 && !is_sorted(stack_a))
-		do_swap(stack_a);
-	if (stack_a->size <= 3 && !is_sorted(stack_a))
-		fast_sort(stack_a);
-	else if (stack_a->size > 3 && !is_sorted(stack_a))
-		sort(stack_a, stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	return (0);
 }

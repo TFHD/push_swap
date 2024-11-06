@@ -1,5 +1,5 @@
-NAME	= 	libft.a
-SRC		= 	ft_atoi.c \
+NAME	:= 	libft.a
+SRC		:= 	ft_atoi.c \
 			ft_bzero.c \
 			ft_isalnum.c \
 			ft_isalpha.c \
@@ -32,9 +32,10 @@ SRC		= 	ft_atoi.c \
 			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
-			ft_putnbr_fd.c
+			ft_putnbr_fd.c \
+			get_next_line_bonus.c \
 			
-BONUS	=	ft_lstnew_bonus.c \
+BONUS	:=	ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \
 			ft_lstsize_bonus.c \
 			ft_lstlast_bonus.c \
@@ -44,26 +45,29 @@ BONUS	=	ft_lstnew_bonus.c \
 			ft_lstiter_bonus.c \
 			ft_lstmap_bonus.c
 
-OBJ 	=	$(SRC:.c=.o)
+OBJ 	:=	$(SRC:.c=.o)
 
-OBJS 	=	${OBJ} ${BONUS:.c=.o}
+OBJS 	:=	${OBJ} ${BONUS:.c=.o}
 
-HEAD 	=	libft.h
+HEAD 	:=	libft.h
 
-AR 		= 	ar -rcs
+AR 		:= 	ar -rcs
 
-GCC 	= 	gcc
+GCC 	:= 	cc
 
-FLAGS 	= 	-Wall -Werror -Wextra
-
+FLAGS 	:= 	-Wall -Werror -Wextra
 
 all: ${NAME}
 
-$(NAME): ${OBJ}
+$(NAME): ${OBJ} printf
 	${AR} ${NAME} ${OBJ}
 	
 .c.o:
-	${GCC} ${FLAGS} -I ./ -c $< -o ${<:.c=.o}
+	${CC} ${FLAGS} -I ./ -c $< -o ${<:.c=.o}
+	
+printf:
+	make -C ft_printf
+	mv ft_printf/libftprintf.a ./
 
 clean:
 	rm -f ${OBJS}

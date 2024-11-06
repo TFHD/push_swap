@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strncmp.c                                          :+:      :+:    :+:   */
+/*   fast_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabartho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 11:25:44 by sabartho          #+#    #+#             */
-/*   Updated: 2024/07/15 11:25:53 by sabartho         ###   ########.fr       */
+/*   Created: 2024/10/28 16:12:43 by sabartho          #+#    #+#             */
+/*   Updated: 2024/10/28 16:44:51 by sabartho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	fast_sort(t_stack *stack)
 {
-	unsigned int	i;
+	int	max;
 
-	i = 0;
-	while ((unsigned char)s1[i] && (unsigned char)s2[i])
-	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i] && i < n)
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	if (is_sorted(stack))
+		return ;
+	max = get_max(stack);
+	if (stack->content[0] == max)
+		do_rotate(stack);
+	else if (stack->content[1] == max)
+		do_rrotate(stack);
+	if (stack->content[0] > stack->content[1])
+		do_swap(stack);
 }
